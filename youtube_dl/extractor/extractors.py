@@ -157,6 +157,7 @@ from .carambatv import (
     CarambaTVPageIE,
 )
 from .cartoonnetwork import CartoonNetworkIE
+from .cbcolympics import CBCOlympicsIE
 from .cbc import (
     CBCIE,
     CBCPlayerIE,
