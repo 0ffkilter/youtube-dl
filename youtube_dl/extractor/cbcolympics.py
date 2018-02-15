@@ -50,7 +50,7 @@ class CBCOlympicsIE(InfoExtractor):
         parser.feed(response.text)
         return parser.content_id
 
-    def get_ism_link(self, ontent_id):
+    def get_ism_link(self, content_id):
         xml_link = CBCOlympicsIE._XML_FORMAT % (content_id)
         response = requests.get(xml_link,
                                 headers={"User-Agent": CBCOlympicsIE.USER_AGENT})
