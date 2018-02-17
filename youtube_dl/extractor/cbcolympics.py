@@ -109,9 +109,10 @@ class CBCOlympicsIE(InfoExtractor):
 
         if not os.path.exists(folder):
             os.makedirs(folder)
-        # with open(os.path.join("_ytdl-temp", "_files.txt"), 'w') as f:
-        #     f.write("\n".join(["file '{}.part'".format(n)
-        #                        for n in content_numbers]))
+
+        with open(os.path.join("_ytdl-temp", "_files.txt"), 'w') as f:
+            f.write("\n".join(["file '{}.part'".format(n)
+                               for n in content_numbers]))
 
         number_parts = len(urls) # or content_numbers
 
@@ -122,16 +123,17 @@ class CBCOlympicsIE(InfoExtractor):
             sys.stdout.write("\r")
             self.fetch_file(value, video_id, folder)
 
-        # filelist = os.path.join("_download", "_files.txt")
-        # filename = video_id + ".mp4"
-        # subprocess.call(["ffmpeg", "-f", "concat", "-safe", "0", "-i",
-        #                  filelist, "-c:v", "copy", "-c:a", "copy",
-        #                  "-bsf:a", "aac_adtstoasc", filename])
+        filelist = os.path.join("_download", "_files.txt")
+        filename = video_id + ".mp4"
+        subprocess.call(["ffmpeg", "-f", "concat", "-safe", "0", "-i",
+                         filelist, "-c:v", "copy", "-c:a", "copy",
+                         "-bsf:a", "aac_adtstoasc", filename])
 
-        video_url = url # blah
+        video_url = urls[0]
 
         return {
-            'id': video_id,
+            '_type': 'video',
+            'id': xml_id,
             'url': video_url,
             'title': self._og_search_title(webpage, fatal=False).split('|', 1)[0].strip(),
             'description': self._og_search_description(webpage),

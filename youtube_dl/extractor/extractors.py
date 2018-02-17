@@ -157,12 +157,12 @@ from .carambatv import (
     CarambaTVPageIE,
 )
 from .cartoonnetwork import CartoonNetworkIE
-from .cbcolympics import CBCOlympicsIE
 from .cbc import (
     CBCIE,
     CBCPlayerIE,
     CBCWatchVideoIE,
     CBCWatchIE,
+    CBCOlympicsIE,
 )
 from .cbs import CBSIE
 from .cbslocal import CBSLocalIE
@@ -1311,7 +1311,7 @@ from .webofstories import (
     WebOfStoriesPlaylistIE,
 )
 from .weibo import (
-    WeiboIE, 
+    WeiboIE,
     WeiboMobileIE
 )
 from .weiqitv import WeiqiTVIE
